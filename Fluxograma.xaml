@@ -127,10 +127,11 @@
           <av:PointCollection x:Key="ConnectorLocation">360,205 360,255</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Transaction Item" FolderPath="lucasdias.ld10@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetQueueItem_2" QueueType="Desafio Redesign" TransactionItem="[Opportunity]">
+      <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Extrai as informações de uma fila no Orchestrator." DisplayName="Get Transaction Item" FolderPath="lucasdias.ld10@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="GetQueueItem_2" QueueType="Desafio Redesign" TransactionItem="[Opportunity]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:GetQueueItem>
@@ -143,7 +144,7 @@
               <av:PointCollection x:Key="ConnectorLocation">360,325 360,375</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:IfElseIfV2 Condition="[Opportunity isNot Nothing]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="450,236" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
+          <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Verifica se a informação extraída da fila não está vazia." Condition="[Opportunity isNot Nothing]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
             <ui:IfElseIfV2.Else>
               <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
@@ -160,6 +161,7 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:IfElseIfV2.Then>
@@ -170,7 +172,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:IfElseIfV2 Condition="[Opportunity.SpecificContent(&quot;Country&quot;).ToString = &quot;USA&quot; Or Opportunity.SpecificContent(&quot;Country&quot;).ToString = &quot;Germany&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
+                <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Verifica se o lugar de origem é o lugar que deve ser cadastrado." Condition="[Opportunity.SpecificContent(&quot;Country&quot;).ToString = &quot;USA&quot; Or Opportunity.SpecificContent(&quot;Country&quot;).ToString = &quot;Germany&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
                   <ui:IfElseIfV2.Else>
                     <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
@@ -188,6 +190,7 @@
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:IfElseIfV2.Then>
@@ -198,13 +201,13 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome Exercício DEV - UIPATH" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V2">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Abre o forms para começar o cadastro dos itens." AttachMode="ByInstance" DisplayName="Chrome Exercício DEV - UIPATH" sap:VirtualizedContainerService.HintSize="354,90" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <Sequence sap2010:Annotation.AnnotationText="Cadastro do item no forms." DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_5">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="Id" />
                                 <Variable x:TypeArguments="x:Boolean" Name="str" />
@@ -214,22 +217,23 @@
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: SHA256 - Online Tools" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="1aa45e49-f944-4cc7-9280-3a22dfc32969" Version="V2">
+                              <uix:NApplicationCard sap2010:Annotation.AnnotationText="Abre site que gera um ID único." AttachMode="ByInstance" DisplayName="Use Browser Chrome: SHA256 - Online Tools" sap:VirtualizedContainerService.HintSize="354,99" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="1aa45e49-f944-4cc7-9280-3a22dfc32969" Version="V2">
                                 <uix:NApplicationCard.Body>
                                   <ActivityAction x:TypeArguments="x:Object">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                    <Sequence DisplayName="Gerar e extrair ID" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Input'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1aa45e49-f944-4cc7-9280-3a22dfc32969" Text="[Opportunity.SpecificContent(&quot;Account Name&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Country&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Quantity&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Stage&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Opportunity Owner&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Price Currency&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Total Price&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Unit Sales Price&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;List Price&quot;).ToString]" Version="V4">
+                                      <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve informações para que o ID seja gerado." ClickBeforeMode="Single" DisplayName="Type Into 'Input'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,99" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1aa45e49-f944-4cc7-9280-3a22dfc32969" Text="[Opportunity.SpecificContent(&quot;Account Name&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Country&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Quantity&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Stage&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Opportunity Owner&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Price Currency&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Total Price&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;Unit Sales Price&quot;).ToString+&quot;\&quot;+Opportunity.SpecificContent(&quot;List Price&quot;).ToString]" Version="V4">
                                         <uix:NTypeInto.Target>
                                           <uix:TargetAnchorable BrowserURL="https://emn178.github.io/online-tools/sha256.html" CVScreenId="9b3465f8-59b7-4a51-9188-3b41d6e34d7b" CvTextArea="656, 311, 82, 11" CvTextArgument="Enter here." CvType="Text" DesignTimeRectangle="648, 300, 726, 218" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='input' tag='TEXTAREA' type='' class='container' placeholder='Enter here...' aaname='' /&gt;" Guid="f6303d5c-dcd7-4aa2-9d3f-92eaf5110c22" InformativeScreenshot="87d648a4d05fd6f6769e345b28f5e474.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SHA256 - Online Tools' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -249,8 +253,15 @@
                                             </uix:VerifyExecutionTypeIntoOptions.Timeout>
                                           </uix:VerifyExecutionTypeIntoOptions>
                                         </uix:NTypeInto.VerifyOptions>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
                                       </uix:NTypeInto>
-                                      <uix:NGetText DisplayName="Get Text 'Output'" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="1aa45e49-f944-4cc7-9280-3a22dfc32969" TextString="[Id]" Version="V4">
+                                      <uix:NGetText sap2010:Annotation.AnnotationText="Extrai o ID e o guarda em uma variável." DisplayName="Get Text 'Output'" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="1aa45e49-f944-4cc7-9280-3a22dfc32969" TextString="[Id]" Version="V4">
                                         <uix:NGetText.Target>
                                           <uix:TargetAnchorable BrowserURL="https://emn178.github.io/online-tools/sha256.html" CVScreenId="9b3465f8-59b7-4a51-9188-3b41d6e34d7b" CvTextArea="654, 567, 468, 13" CvType="AnyWordGroup" DesignTimeRectangle="648, 557, 726, 178" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='output' tag='TEXTAREA' type='' class='container' placeholder='Output here...' aaname='' /&gt;" Guid="2170e1d9-3cca-4ba9-8883-6f31334686b6" InformativeScreenshot="8a48fc235aeb3ca0f135fbdd860c5a9d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SHA256 - Online Tools' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -260,6 +271,13 @@
                                             </uix:TargetAnchorable.Anchors>
                                           </uix:TargetAnchorable>
                                         </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
                                       </uix:NGetText>
                                     </Sequence>
                                   </ActivityAction>
@@ -271,10 +289,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NApplicationCard>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'ID'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Id]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o ID gerado no forms." ClickBeforeMode="Single" DisplayName="Type Into 'ID'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,88" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Id]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="2793fbf9-086b-4624-83fd-bce730e11ab3" CvElementArea="383, 637, 301, 33" CvType="InputBox" DesignTimeRectangle="388, 644, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="62f6048b-69a9-43ec-82d2-730a6dd9f527" InformativeScreenshot="94d32ddcac1a01534add93c6be77ea51.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -298,10 +317,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Account Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Account Name&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Account Name&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Account Name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Account Name&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="b9eb4fae-4165-4eb8-90dd-e1da04a170b6" CvElementArea="383, 648, 301, 33" CvType="InputBox" DesignTimeRectangle="388, 654, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i5' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="40ff3698-c09f-43cd-919d-182ce415fff2" InformativeScreenshot="2c68362eea40afdd46e4ec5077eed819.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -325,10 +345,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Country'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Country&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Country&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Country'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Country&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="83414181-f2a3-4e61-ac18-b08e531c41ec" CvElementArea="383, 637, 301, 33" CvType="InputBox" DesignTimeRectangle="388, 644, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i9' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="270c89b8-d635-4801-86fd-9b6183a705f3" InformativeScreenshot="93a7567cc869043f9f545996ee431b57.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -352,10 +373,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Quantity'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Quantity&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Quantity&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Quantity'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Quantity&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="ec7b4b97-fe86-4489-8762-af57df8674c3" CvElementArea="383, 689, 300, 32" CvType="InputBox" DesignTimeRectangle="388, 694, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i13' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="c6f1fb27-aa97-4a92-8fe4-1f5d56b40714" InformativeScreenshot="a68b7efd6d6d7a2bb4dd5667c8ae7cba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -379,10 +401,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Stage'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Stage&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Stage&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Stage'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Stage&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="4182dcc1-dc40-4ade-9936-30ff7ae9c6e1" CvElementArea="383, 637, 301, 33" CvType="InputBox" DesignTimeRectangle="388, 644, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i17' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="acb5e5cb-3ad4-4561-a58d-4fe16c1f6b59" InformativeScreenshot="e32f3c1d3afea14e2d80b0058a261258.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -406,10 +429,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Opportunity Owner'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Opportunity Owner&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Opportunity&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Opportunity Owner'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Opportunity Owner&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="d227b702-eca2-476e-8529-87fb5dde0a98" CvElementArea="383, 689, 300, 31" CvType="InputBox" DesignTimeRectangle="388, 694, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i21' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="7f054d9f-30a0-4d89-92e1-6bd894338466" InformativeScreenshot="294463784e1a93656104df75fbf8f985.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -433,10 +457,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'MoedaA moeda do preço a…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Price Currency&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Price Currency&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Moeda'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Price Currency&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="452c7f84-b46a-40b9-9da5-899818d76953" CvElementArea="384, 665, 299, 31" CvType="InputBox" DesignTimeRectangle="388, 670, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i25' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="791f58a1-a67d-496e-bb05-b9fb768d1635" InformativeScreenshot="a2bd22d4a3845320500f43c0fc9594b2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -460,16 +485,18 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <ui:IfElseIfV2 Condition="[Convert.ToInt32(Opportunity.SpecificContent(&quot;Total Price&quot;).ToString) &gt; 10000]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="IfElseIfV2_4">
+                              <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Verifica se o valor do item &quot;Total Price&quot; e toma uma decisão de acordo com a condição especificada." Condition="[Convert.ToInt32(Opportunity.SpecificContent(&quot;Total Price&quot;).ToString) &gt; 10000]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="354,129" sap2010:WorkflowViewState.IdRef="IfElseIfV2_4">
                                 <ui:IfElseIfV2.Else>
-                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <Sequence sap2010:Annotation.AnnotationText="Seleciona a opção &quot;não&quot; se a condição não for satisfeita." DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Não'" sap:VirtualizedContainerService.HintSize="354,216" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
@@ -508,14 +535,16 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:IfElseIfV2.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                  <Sequence sap2010:Annotation.AnnotationText="Seleciona a opção &quot;sim&quot; se a condição for satisfeita." DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,56" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sim'" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
@@ -548,7 +577,7 @@
                                   </Sequence>
                                 </ui:IfElseIfV2.Then>
                               </ui:IfElseIfV2>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Unit Sales PriceApenas …'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Unit Sales Price&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Unit Sales Price&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Unit Sales Price'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Unit Sales Price&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="b83c8527-adaf-454b-8218-ffa917af0812" CvElementArea="383, 622, 300, 33" CvType="InputBox" DesignTimeRectangle="388, 628, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i39' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="71835be3-60ba-499e-b2d3-16a3fb4346d8" InformativeScreenshot="357d40ff63f335de2661ac4d68d8356e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -572,10 +601,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Total PriceApenas o núm…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Total Price&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;Total Price&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'Total Price'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;Total Price&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="a42b8e59-044f-482b-b313-2dd3e1c3fa77" CvElementArea="383, 598, 299, 33" CvType="InputBox" DesignTimeRectangle="388, 604, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i43' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="246076ef-0cbf-4e95-b77f-0613aebaeda0" InformativeScreenshot="3c58f9e4c53900f463fbb2150b96f053.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -599,10 +629,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'List PriceApenas o nume…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;List Price&quot;).ToString]" Version="V4">
+                              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Escreve o dado &quot;List Price&quot; do item extraído do Orchestrator no forms." ClickBeforeMode="Single" DisplayName="Type Into 'List Price'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Text="[Opportunity.SpecificContent(&quot;List Price&quot;).ToString]" Version="V4">
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="803ff7c5-37be-42ef-82e8-11c21d2205a4" CvElementArea="384, 674, 300, 32" CvType="InputBox" DesignTimeRectangle="388, 680, 295, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl aria-labelledby='i47' tag='INPUT' type='text' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="72429f8c-5c14-466a-bf60-0abacca7350b" InformativeScreenshot="b445e5d8307a4141376ac910e45adb93.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -626,10 +657,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NTypeInto>
-                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Exercício DEV - UIPATH'" sap:VirtualizedContainerService.HintSize="354,57" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
+                              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Envia as informações cadastradas no forms." ClickType="Single" DisplayName="Click 'Exercício DEV - UIPATH'" sap:VirtualizedContainerService.HintSize="354,99" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/viewform" CVScreenId="081e5a96-8ec0-461e-8b25-43f30e5bf609" CvElementArea="361, 580, 92, 40" CvTextArea="385, 593, 44, 13" CvTextArgument="Enviar" CvType="Button" DesignTimeRectangle="363, 651, 89, 36" DesignTimeScaleFactor="1" FuzzySelectorArgument="&lt;webctrl type='' tag='SPAN' class='l4V7wb Fxmcue' aaname='' check:innerText='Enviar' /&gt;" Guid="c5a81912-3848-48ba-af87-055b9f123458" InformativeScreenshot="e15b5b4ebe162edd2ceffda639bf1179.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -653,10 +685,11 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Enviar outra resposta'" sap:VirtualizedContainerService.HintSize="354,50" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
+                              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Clica em &quot;Enviar outra resposta&quot; para resetar o forms e possibilitar o cadastro de um novo item." ClickType="Single" DisplayName="Click 'Enviar outra resposta'" sap:VirtualizedContainerService.HintSize="354,107" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5bd419ca-5ee2-44f2-9141-29f1b7558162" Version="V4">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe8bucitMAeb-ELVbYmYodNJsgQs5P5wRXHT68lqFx79a6-Qg/formResponse" CVScreenId="4f01d93e-cf9b-4f61-843c-c81d33c674d3" CvTextArea="395, 507, 133, 16" CvTextArgument="Enviar outra resposta" CvType="Text" DesignTimeRectangle="396, 506, 132, 17" DesignTimeScaleFactor="1" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='' aaname='Enviar outra resposta' check:innerText='Enviar outra resposta' /&gt;" Guid="d8d36259-dd7e-422f-8f34-5c60279f1b41" InformativeScreenshot="305a7175ba7f83957af519ab92ac00f1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Exercício DEV - UIPATH' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -680,6 +713,7 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
@@ -693,6 +727,7 @@
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uix:NApplicationCard>
@@ -754,10 +789,11 @@
                           <av:Size x:Key="ShapeSize">110,70</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;No more transactions.&quot;]">
+                      <ui:LogMessage sap2010:Annotation.AnnotationText="Se não houver mais itens a serem cadastrados, retorna &quot;No more transactions.&quot; em log." DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;No more transactions.&quot;]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
